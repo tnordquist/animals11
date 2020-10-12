@@ -1,10 +1,12 @@
 package edu.cnm.deepdive.animals11.model;
 
+import androidx.annotation.NonNull;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 public class Animal {
 
+  @Expose
   private String name;
 
   private Taxonomy taxonomy;
@@ -75,5 +77,11 @@ public class Animal {
 
   public void setImageUrl(String imageUrl) {
     this.imageUrl = imageUrl;
+  }
+
+  @NonNull
+  @Override
+  public String toString() {
+    return getName();
   }
 }
