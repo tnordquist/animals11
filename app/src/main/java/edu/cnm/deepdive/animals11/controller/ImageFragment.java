@@ -1,8 +1,9 @@
 package edu.cnm.deepdive.animals11.controller;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -13,26 +14,15 @@ import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-import edu.cnm.deepdive.animals11.BuildConfig;
 import edu.cnm.deepdive.animals11.R;
 import edu.cnm.deepdive.animals11.model.Animal;
-import edu.cnm.deepdive.animals11.model.ApiKey;
-import edu.cnm.deepdive.animals11.service.AnimalService;
 import edu.cnm.deepdive.animals11.viewmodel.AnimalViewModel;
-import java.io.IOException;
 import java.util.List;
 import java.util.Objects;
-import retrofit2.Response;
-import retrofit2.Retrofit;
-import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ImageFragment extends Fragment implements OnItemSelectedListener {
 
@@ -40,14 +30,18 @@ public class ImageFragment extends Fragment implements OnItemSelectedListener {
   private AnimalViewModel animalViewModel;
   private Spinner spinner;
   private List<Animal> animals;
+  private Toolbar toolbar;
 
   @Override
   public View onCreateView(LayoutInflater inflater, ViewGroup container,
       Bundle savedInstanceState) {
     View root = inflater.inflate(R.layout.fragment_image, container, false);
     setupWebView(root);
+    toolbar = root.findViewById(R.id.toolbar);
+    toolbar.setTitle(R.string.app_name);
     spinner = root.findViewById(R.id.animals_spinner);
     spinner.setOnItemSelectedListener(this);
+    ((MainActivity) getActivity()).setSupportActionBar(toolbar);
     return root;
   }
 
