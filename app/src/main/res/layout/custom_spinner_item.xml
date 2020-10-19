@@ -4,6 +4,7 @@
   android:layout_height="wrap_content"
   android:textSize="@dimen/title_size"
   android:padding="@dimen/generic_padding"
-  android:textColor="@color/deepBlack"
+  android:textStyle="italic|bold"
+  android:textColor="@color/white"
   >
 </TextView>

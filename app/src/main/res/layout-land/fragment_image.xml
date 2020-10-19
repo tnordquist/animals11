@@ -47,8 +47,8 @@
     android:layout_height="wrap_content"
     app:layout_constraintStart_toStartOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
-    android:text="@string/portrait_mode"
+    android:text="@string/landscape_mode"
     android:textColor="@color/white"
     />
-  
+
 </androidx.constraintlayout.widget.ConstraintLayout>
